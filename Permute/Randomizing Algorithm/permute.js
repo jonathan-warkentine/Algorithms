@@ -8,10 +8,7 @@ function permute (ar, depth) {
 
   results = lengths.map(lngth => randomize(ar, lngth, depth)).flat();
   
-  return results.filter((result, index) => { //filters duplicates
-     return results.findIndex(res => arrMatch(res, result)) == index;
-  });
-
+  return clearDupes(results);
 }
 
 function randomize (ar, lngth, depth) { //randomizes array order
@@ -25,7 +22,7 @@ function randomize (ar, lngth, depth) { //randomizes array order
       randomed[i].push(tempAr.splice(Math.floor(Math.random()*tempAr.length), 1));
     }
   }
-  return randomed.map(arr => arr.flat());
+  return clearDupes(randomed.map(arr => arr.flat()));
 }
 
 function arrMatch (ar1, ar2) {
@@ -34,4 +31,12 @@ function arrMatch (ar1, ar2) {
     false;
 }
 
-console.log(permute([1,2,3,4,5,6], 100))
+function clearDupes (ar) {
+  return ar.filter((item, index) => { //filters duplicates
+    return ar.findIndex(itm => arrMatch(itm, item)) == index;
+  });
+}
+
+console.time()
+console.log(permute([0,1,2,3,4,5,6,7,8,9], 500))
+console.timeEnd()
