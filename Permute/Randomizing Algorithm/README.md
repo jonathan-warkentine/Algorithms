@@ -1,0 +1,2 @@
+## Possible Improvements:
+1. If I can find or come up with a formula that determines the # of results that need to be returned based off the length of the provided array, then I can potentially allow the algorithm to run until it returns that # of results, rather than guesstimating the number of passees through that it will take
