@@ -54,6 +54,5 @@ function factorial (num) {
 }
 
 console.time()
-// console.log(randomize([0,1,2,3], 3))
 console.log(permute([0,1,2,3,4,5,6,7,8,9])) // 
 console.timeEnd()
